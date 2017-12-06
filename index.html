@@ -7,23 +7,23 @@
   </head>
   <body>
     <header>
-      <h1 class="mainTitle"><span class="magNum">Number</span> Guesser</h1>
+      <h1 class="mainTitle"><span class="magNum">Number</span><span class="guesser"> Guesser</h1>
     </header>
-    <label for="main-input"></label>
-    <div class="topButtons">
       <form id="form">
+        <label for="main-input"></label>
         <input type="text" id="main-input" placeholder="Guess a number">
-        <button name="button" id="guess">Guess</button>
-        <button name="button" id="clear">Clear</button>
-        <!-- <input type="reset" name="" value="Clear" id="clear"> -->
+        <div class="guessClear">
+          <button id="guess">Guess</button>
+          <button id="clear">Clear</button>
+        </div>
       </form>
-  </div>
+      <h3 class="last-guess"></h3>
+
   <section id="info">
-    <h1 class="appendingDom"></h1>
+    <p>??</p>
+    <h3 class="high-low">Please enter a number</h3>
   </section>
-  <section id="userGuess">
-    <h1 id="appendingDom">Whuuuuuut</h1>
-  </section>
-    <script src="app.js"></script>
+  <button class="reset-button">Reset</button>
+  <script src="app.js"></script>
   </body>
 </html>
