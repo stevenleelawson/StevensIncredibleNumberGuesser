@@ -1,7 +1,8 @@
 var randomNum = Math.floor((Math.random() * 100 ) + 1);
 console.log(randomNum);
 var clearButton = document.querySelector('#clear-button');
-var guessButton = document.querySelector('#guess-button')
+var guessButton = document.querySelector('#guess-button');
+var resetButton = document.querySelector('#reset-button');
 var mainInput = document.querySelector('#main-input');
 var displayNumber = document.querySelector('.display-number');
 var highLow = document.querySelector('.high-low');
@@ -10,14 +11,20 @@ clearButton.addEventListener('click',function(event){
     event.preventDefault();
     console.log(mainInput);
     form.reset();
+    displayNumber.innerText = "??";
     // userGuess.parentNode.removeChild(elem);
   });
-
+resetButton.addEventListener('click', function(event){
+  event.preventDefault();
+  form.reset();
+  displayNumber.innerText = "??";
+})
 guessButton.addEventListener('click', function(event){
   event.preventDefault();
   var userGuess = mainInput.value;
   var usingGuess = parseInt(userGuess);
   displayNumber.innerText = usingGuess;
+
   if (usingGuess < randomNum){
     var userGuess = mainInput.value;
     var usingGuess = parseInt(userGuess);
@@ -27,6 +34,7 @@ guessButton.addEventListener('click', function(event){
   } else if (usingGuess === randomNum){
     highLow.innerText = "BOOM";
   }
+  
   if (isNaN(usingGuess)){
     displayNumber.innerText = "??";
     highLow.innerText = "Enter an actual number, bitte";
