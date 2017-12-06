@@ -1,5 +1,10 @@
 var randomNum = Math.floor((Math.random() * 100 ) + 1);
+var fiftyRandomNum = Math.floor((Math.random() * 50 ) + 1);
+var twentyFiveRandomNum = Math.floor((Math.random() * 25 ) + 1);
 console.log(randomNum);
+console.log(fiftyRandomNum);
+console.log(twentyFiveRandomNum);
+var minMaxButton = document.getElementById('min-max-button');
 var clearButton = document.querySelector('#clear-button');
 var clearClicked = document.getElementsByClassName('used')[0];
 var guessButton = document.querySelector('#guess-button');
@@ -7,13 +12,26 @@ var resetButton = document.querySelector('#reset-button');
 var mainInput = document.querySelector('#main-input');
 var displayNumber = document.querySelector('.display-number');
 var highLow = document.querySelector('.high-low');
-var usingGuess;
-
+var oneHundred = document.querySelector('.one-hundred');
+var fifty = document.querySelector('.fifty');
+var twentyFive = document.querySelector('.twenty-five');
+var boom = document.getElementById('boom-boom');
   mainInput.addEventListener('keyup', function(){
     clearButton.disabled = false;
     resetButton.disabled = false;
     });
 
+  minMaxButton.addEventListener('click', function(event){
+      if(oneHundred){
+        randomNum = randomNum;
+      } else if (fifty){
+        randomNum = fiftyRandomNum;
+      } else if (twentyFive) {
+        randomNum = twentyFiveRandomNum;
+      } else {
+        randomNum = randomNum;
+      }
+    })
 
 
 
@@ -27,6 +45,7 @@ function blah (){
     highLow.innerText = "Your Guess is too High.";
   } else if (usingGuess === randomNum){
     highLow.innerText = "BOOM";
+
   }
 }
 // function disabledButton(input){
@@ -62,6 +81,7 @@ resetButton.addEventListener('click', function(event){
   form.reset();
   displayNumber.innerText = "??";
   highLow.innerText = "Please enter a number";
+  randomNum = fiftyRandomNum;
 })
 guessButton.addEventListener('click', function(event){
   event.preventDefault();
@@ -77,6 +97,8 @@ guessButton.addEventListener('click', function(event){
     highLow.innerText = "Your Guess is too High.";
   } else if (usingGuess === randomNum){
     highLow.innerText = "BOOM";
+    boom.style.hidden = false;
+    randomNum = newRandomNum;
   }
 
   if (isNaN(usingGuess)){
