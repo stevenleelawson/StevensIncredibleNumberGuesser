@@ -45,7 +45,7 @@ form {
   left: 35%;
 }
 button {
-  background-color: #d0d2d3;
+  background-color: #929497;
   color: #ffffff;
   width: 200px;
   height: 50px;
@@ -64,6 +64,12 @@ button:hover {
 #reset-button:hover {
   background-color: #eb008b;
 }
+button:disabled{
+  background-color: #d0d2d3;
+}
+#reset-button:disabled{
+  background-color: #d0d2d3;
+}
 .last-guess {
   display: block;
   position: absolute;
@@ -75,15 +81,16 @@ button:hover {
 }
 p {
   font-size: 250px;
+  font-weight: lighter;
   color: #eb008b;
   text-align: center;
   position: absolute;
   font-family: 'Open Sans', sans-serif;
-  left: 41%;
+  left: 45%;
   top: 35%;
 }
 #reset-button {
-  background-color: #d0d2d3;
+  background-color: #929497;
   color: #ffffff;
   width: 500px;
   height: 38px;
