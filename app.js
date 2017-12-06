@@ -22,6 +22,7 @@ var boom = document.getElementById('boom-boom');
     });
 
   minMaxButton.addEventListener('click', function(event){
+    event.preventDefault();
       if(oneHundred){
         randomNum = randomNum;
       } else if (fifty){
@@ -32,41 +33,6 @@ var boom = document.getElementById('boom-boom');
         randomNum = randomNum;
       }
     })
-
-
-
-
-function blah (){
-  var userGuess = mainInput.value;
-  usingGuess = parseInt(userGuess);
-  if (usingGuess < randomNum){
-    highLow.innerText = "Your Guess is too Low.";
-  } else if (usingGuess > randomNum){
-    highLow.innerText = "Your Guess is too High.";
-  } else if (usingGuess === randomNum){
-    highLow.innerText = "BOOM";
-
-  }
-}
-// function disabledButton(input){
-//   if (document.getElementById('main-input').value === 0){
-//     clearButton.disabled = true;
-//   } else {
-//     clearButton.disabled = false;
-//   }
-// }
-// function activeButton (){
-//     clearButton.disabled = false;
-//     resetButton.disabled = false;
-//     if(mainInput.value = ' '){
-//       clearButton.disabled = true;
-//       resetButton.disabled = true;
-//     } else {
-//       activeClear = false;
-//       activeReset = false;
-//     }
-// };
-
 
 clearButton.addEventListener('click',function(event){
     event.preventDefault();
@@ -82,6 +48,10 @@ resetButton.addEventListener('click', function(event){
   displayNumber.innerText = "??";
   highLow.innerText = "Please enter a number";
   randomNum = fiftyRandomNum;
+  mainInput.addEventListener('keyup', function(){
+    clearButton.disabled = false;
+    resetButton.disabled = false;
+    });
 })
 guessButton.addEventListener('click', function(event){
   event.preventDefault();
@@ -108,3 +78,15 @@ guessButton.addEventListener('click', function(event){
     highLow.innerText = "Please enter a number between zero and one hundred";
   }
 })
+// function blah (){
+//   var userGuess = mainInput.value;
+//   usingGuess = parseInt(userGuess);
+//   if (usingGuess < randomNum){
+//     highLow.innerText = "Your Guess is too Low.";
+//   } else if (usingGuess > randomNum){
+//     highLow.innerText = "Your Guess is too High.";
+//   } else if (usingGuess === randomNum){
+//     highLow.innerText = "BOOM";
+//
+//   }
+// }
