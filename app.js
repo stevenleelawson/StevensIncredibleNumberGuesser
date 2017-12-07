@@ -1,16 +1,11 @@
 
 var minMaxButton = document.getElementById('min-max-button');
 var clearButton = document.querySelector('#clear-button');
-var clearClicked = document.getElementsByClassName('used')[0];
 var guessButton = document.querySelector('#guess-button');
 var resetButton = document.querySelector('#reset-button');
 var mainInput = document.querySelector('#main-input');
 var displayNumber = document.querySelector('.display-number');
 var highLow = document.querySelector('.high-low');
-var oneHundred = document.querySelector('.one-hundred');
-var fifty = document.querySelector('.fifty');
-var twentyFive = document.querySelector('.twenty-five');
-var boom = document.getElementById('boom-boom');
 var rangeButton = document.getElementById('range-button');
 var minNum = document.getElementById('min-num').value;
 var maxNum = document.getElementById('max-num').value;
@@ -21,7 +16,7 @@ function dynNum(){
   return Math.floor(Math.random() * (maxNum - minNum)) + minNum;
 }
 var randomNum = dynNum();
-console.log(randomNum)
+
 
 rangeButton.addEventListener('click', function(event){
   event.preventDefault();
@@ -42,6 +37,7 @@ clearButton.addEventListener('click',function(event){
     var usingGuess = parseInt(userGuess);
     form.reset();
     displayNumber.innerText = "?";
+    clearButton.disabled = true;
   });
 
 resetButton.addEventListener('click', function(event){
@@ -50,6 +46,7 @@ resetButton.addEventListener('click', function(event){
   displayNumber.innerText = "?";
   highLow.innerText = "Please enter a number";
   randomNum = fiftyRandomNum;
+  resetButton.disabled = true;
   mainInput.addEventListener('keyup', function(){
     clearButton.disabled = false;
     resetButton.disabled = false;
