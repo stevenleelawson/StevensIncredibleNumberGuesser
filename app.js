@@ -1,9 +1,4 @@
-var randomNum = Math.floor((Math.random() * 100 ) + 1);
-var fiftyRandomNum = Math.floor((Math.random() * 50 ) + 1);
-var twentyFiveRandomNum = Math.floor((Math.random() * 25 ) + 1);
-console.log(randomNum);
-console.log(fiftyRandomNum);
-console.log(twentyFiveRandomNum);
+
 var minMaxButton = document.getElementById('min-max-button');
 var clearButton = document.querySelector('#clear-button');
 var clearClicked = document.getElementsByClassName('used')[0];
@@ -16,36 +11,43 @@ var oneHundred = document.querySelector('.one-hundred');
 var fifty = document.querySelector('.fifty');
 var twentyFive = document.querySelector('.twenty-five');
 var boom = document.getElementById('boom-boom');
+var rangeButton = document.getElementById('range-button');
+var minNum = document.getElementById('min-num').value;
+var maxNum = document.getElementById('max-num').value;
+
+function dynNum(){
+  minNum = Math.ceil(minNum)
+  maxNum = Math.floor(maxNum)
+  return Math.floor(Math.random() * (maxNum - minNum)) + minNum;
+}
+var randomNum = dynNum();
+console.log(randomNum)
+
+rangeButton.addEventListener('click', function(event){
+  event.preventDefault();
+  minNum = document.getElementById('min-num').value;
+  maxNum = document.getElementById('max-num').value;
+  randomNum = dynNum();
+
+})
+
   mainInput.addEventListener('keyup', function(){
     clearButton.disabled = false;
     resetButton.disabled = false;
     });
-
-  minMaxButton.addEventListener('click', function(event){
-    event.preventDefault();
-      if(oneHundred){
-        randomNum = randomNum;
-      } else if (fifty){
-        randomNum = fiftyRandomNum;
-      } else if (twentyFive) {
-        randomNum = twentyFiveRandomNum;
-      } else {
-        randomNum = randomNum;
-      }
-    })
 
 clearButton.addEventListener('click',function(event){
     event.preventDefault();
     var userGuess = mainInput.value;
     var usingGuess = parseInt(userGuess);
     form.reset();
-    displayNumber.innerText = "??";
+    displayNumber.innerText = "?";
   });
 
 resetButton.addEventListener('click', function(event){
   event.preventDefault();
   form.reset();
-  displayNumber.innerText = "??";
+  displayNumber.innerText = "?";
   highLow.innerText = "Please enter a number";
   randomNum = fiftyRandomNum;
   mainInput.addEventListener('keyup', function(){
@@ -66,27 +68,15 @@ guessButton.addEventListener('click', function(event){
   } else if (usingGuess > randomNum){
     highLow.innerText = "Your Guess is too High.";
   } else if (usingGuess === randomNum){
-    highLow.innerText = "BOOM";
+    highLow.innerText = "BOOM SHAKALA BOOM";
     boom.style.hidden = false;
     randomNum = newRandomNum;
   }
 
   if (isNaN(usingGuess)){
-    displayNumber.innerText = "??";
+    displayNumber.innerText = "?";
     highLow.innerText = "Enter an actual number, bitte";
   } else if (usingGuess < 1 || usingGuess > 100){
-    highLow.innerText = "Please enter a number between zero and one hundred";
+    highLow.innerText = "Please enter a number in the given range";
   }
 })
-// function blah (){
-//   var userGuess = mainInput.value;
-//   usingGuess = parseInt(userGuess);
-//   if (usingGuess < randomNum){
-//     highLow.innerText = "Your Guess is too Low.";
-//   } else if (usingGuess > randomNum){
-//     highLow.innerText = "Your Guess is too High.";
-//   } else if (usingGuess === randomNum){
-//     highLow.innerText = "BOOM";
-//
-//   }
-// }

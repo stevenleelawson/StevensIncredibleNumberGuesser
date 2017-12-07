@@ -40,15 +40,17 @@ form {
   left: 499px;
   font-size: 20px;
 }
-#min-max-value {
+#min-num, #max-num{
   width: 200px;
   height: 30px;
   padding: 5px;
-  margin: 20px;
+  margin: 10px;
   display: block;
 }
-#min-max-button{
+#range-button{
   display: block;
+  position: fixed;
+  right: 180px;
 }
 .min-max-section {
   position: absolute;
@@ -101,8 +103,8 @@ p {
   text-align: center;
   position: absolute;
   font-family: 'Open Sans', sans-serif;
-  left: 45%;
-  top: 35%;
+  left: 47%;
+  top: 37%;
 }
 #reset-button {
   background-color: #929497;
@@ -125,6 +127,7 @@ p {
   left: 42%;
   top: 30%;
   margin-top: 25%;
+  text-align: center;
   color: #404041;
   font-size: 1.7rem;
 }
